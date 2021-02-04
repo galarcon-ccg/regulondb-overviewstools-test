@@ -5,8 +5,18 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@material-ui/core": "4.11.3",
+    "@material-ui/icons": "4.11.2",
+    "@svgdotjs/svg.js": "3.0.16",
+    "apollo-boost": "0.4.9",
+    "chart.js": "2.9.4",
+    "graphql": "15.5.0",
+    "mdbreact": "5.0.1",
     "react": "17.0.0",
+    "react-apollo": "3.1.5",
+    "react-chartjs-2": "2.11.1",
     "react-dom": "17.0.0",
+    "react-router-dom": "5.2.0",
     "react-scripts": "3.4.3"
   },
   "devDependencies": {
