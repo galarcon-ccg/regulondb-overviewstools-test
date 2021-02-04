@@ -58,28 +58,27 @@ N/A
 */
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Main from "./components/overview_main";
-import Graphic from "./components/overview_graphic";
-import "./styles/regulonDB_global.css";
-import "./styles/overviewsStyles.css";
 
-const Overviews = () => {
+import Overviews from "./overviews";
+import "./styles/regulonDB_global.css";
+
+const App = () => {
   return (
     <>
       RegulonDB Overviews Tool Testing
       <Switch>
         <Route exact path={"/overviews"}>
-          <Main />
+          <Overviews />
         </Route>
         <Route path={"/overviews/:id"}>
-          <Graphic />
+          <Overviews />
         </Route>
         <Route path={"*"}>
-          <Main />
+          <Overviews />
         </Route>
       </Switch>
     </>
   );
 };
 
-export default Overviews;
+export default App;
