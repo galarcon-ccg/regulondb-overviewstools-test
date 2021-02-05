@@ -1,41 +1,35 @@
 import React from "react";
-import { MDBDataTable } from "mdbreact";
+import { IntelligentTable } from "./ui-components/ui_components";
 
 const ModalTable = ({ datos }) => {
   const { objectsRelated } = datos;
 
-  let dataModal = [];
-  let numColum = [];
+  let row = [];
 
-  if (objectsRelated.leng < 50) {
-    numColum[0].push({
-      label: "Name",
-      field: "name",
-      sort: "asc",
-      width: 270
+  objectsRelated.map((obj) => {
+    row.push({
+      data: obj?.name,
+      more: <a href="#top">more info ...</a>
     });
-    numColum[1].push({ label: "Name", field: "name", sort: "asc", width: 270 });
-  }
-  for (let i = 0; i < objectsRelated.length; i++) {
-    dataModal.push({
-      name: <a href="#top">{objectsRelated[i].name}</a>
-    });
-  }
+    return null;
+  });
 
   const dataTable = {
     columns: [
       {
-        label: "Name",
-        field: "name",
-        sort: "asc",
-        width: 270
+        label: "data",
+        field: "data"
+      },
+      {
+        label: "more info",
+        field: "more"
       }
     ],
-    rows: dataModal
+    rows: row
   };
 
   return (
-    <MDBDataTable
+    <IntelligentTable
       scrollY
       striped
       sortable

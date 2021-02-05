@@ -4,13 +4,9 @@ import React from "react";
 //import { useQuery } from "react-apollo";
 import { Bar } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
-
 import { Cover } from "./ui-components/ui_components";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import "bootstrap-css-only/css/bootstrap.min.css";
-//import "mdbreact/dist/css/mdb.css";
-
 import Datatable from "./overview_table";
+import Style from "./overviews.module.css";
 
 import data from "./graph1.json";
 
@@ -115,29 +111,30 @@ function Grafica() {
         <Cover>
           <h1>Overviews Graphic {getOverview.graph.title}</h1>
         </Cover>
-
         <article>
-          <p className="description">{description}</p>
-          <h3 className="mt-5">Graphic</h3>
-
-          <div className="container-graphic">
+          <p
+            className={Style.description}
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+          <h2>Graphic</h2>
+          <div className={Style.container_graphic}>
             <MDBContainer>
-              <div className="float">
-                <h4 className="label-y">{labelY}</h4>
+              <div className={Style.float}>
+                <h4 className={Style.label_y}>{labelY}</h4>
                 <Bar
-                  className="barGraphic"
+                  className={Style.barGraphic}
                   data={chartData.dataBar}
                   options={chartData.barChartOptions}
                 />
               </div>
-              <h4 className="label-x">{labelX}</h4>
-              <p>{footGraph}</p>
+              <h4 className={Style.label_x}>{labelX}</h4>
+              <p dangerouslySetInnerHTML={{ __html: footGraph }} />
             </MDBContainer>
           </div>
 
-          <h3 className="mt-5">Data Overview</h3>
-          <div className="container-table">
-            <Datatable />
+          <h2>Data Overview</h2>
+          <div className={Style.container_table}>
+            <Datatable data={data} />
           </div>
         </article>
       </>

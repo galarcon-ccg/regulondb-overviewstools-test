@@ -13,14 +13,15 @@ export default function Acordion({ id, nameGroup = "", graphics = [] }) {
       >
         {graphics.map((graphic) => {
           return (
-            <a
-              href={`/overviews/${graphic.id}`}
-              key={graphic.id}
-              id={graphic.id}
-              style={{ width: "100%" }}
-            >
-              {graphic.title}
-            </a>
+            <div key={graphic.id} style={{ paddingLeft: "2%" }}>
+              <a
+                href={`/overviews/${graphic.id}`}
+                id={graphic.id}
+                style={{ width: "100%" }}
+              >
+                {graphic.title}
+              </a>
+            </div>
           );
         })}
       </DropDown>

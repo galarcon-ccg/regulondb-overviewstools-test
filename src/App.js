@@ -58,7 +58,6 @@ N/A
 */
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-
 import Overviews from "./overviews";
 import "./styles/regulonDB_global.css";
 

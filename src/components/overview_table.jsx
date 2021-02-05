@@ -1,21 +1,8 @@
 import React from "react";
-//import { useParams } from "react-router-dom";
-//import { getOverview } from "../graphql/QueryOverview";
-import { MDBDataTable } from "mdbreact";
-//import { useQuery } from "react-apollo";
-import { Modal } from "./ui-components/ui_components";
+import { Modal, IntelligentTable } from "./ui-components/ui_components";
 import ModalTable from "./overview_modal_table";
 
-import data from "./graph1.json";
-
-const Datatable = () => {
-  //const id = useParams().id;
-  //const { data, loading, error } = useQuery(getOverview(id));
-
-  /*if (loading) return <h2>Loading...</h2>;
-  if (error) {
-    console.log("Ah ocurrido un error " + error);
-  }*/
+const Datatable = ({ data }) => {
   if (data) {
     const { getOverview } = data;
     const { graph } = getOverview;
@@ -52,18 +39,15 @@ const Datatable = () => {
       columns: [
         {
           label: labelX,
-          field: "labelX",
-          width: 270
+          field: "labelX"
         },
         {
           label: labelY,
-          field: "labelY",
-          width: 150
+          field: "labelY"
         },
         {
-          label: "BTN Download",
-          field: "download",
-          width: 200
+          label: "data",
+          field: "download"
         }
       ],
       rows: jsonData
@@ -72,10 +56,11 @@ const Datatable = () => {
     return (
       <>
         <h2>Tabla de datos</h2>
-        <MDBDataTable striped sortable small sorting="true" data={dataTable} />
+        <IntelligentTable data={dataTable} />
       </>
     );
   }
+  return <>Data Error</>;
 };
 
 export default Datatable;
