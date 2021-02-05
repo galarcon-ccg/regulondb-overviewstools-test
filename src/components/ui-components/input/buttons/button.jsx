@@ -1,7 +1,7 @@
 /**
 # Component (user guide)
 # Component name 
-[Button --v1.0]
+[Button --v0.5.0]
 
 ## Description  
 [This component is a simple button, activated by a click, has two different aspects, by default, accent]
@@ -104,62 +104,63 @@ Description the class name requiere of css
 
 **/
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import Styles from './Buttons.module.css'
-
+import React from "react";
+import PropTypes from "prop-types";
+import Styles from "./Buttons.module.css";
 
 const Button = ({
-    accent = false,
-    className = "",
-    children,
-    disabled = false,
-    id,
-    label = "",
-    style = {},
-    onClick = warn_noAction
+  accent = false,
+  className = "",
+  children,
+  disabled = false,
+  id,
+  label = "",
+  style = {},
+  onClick = warn_noAction
 }) => {
+  function OnClick(event) {
+    if (!disabled) {
+      onClick(event);
+    }
+  }
 
-function OnClick(event) {
-        if (!disabled) {
-            onClick(event);
-        }
-    };
-
-    return (
-        <button id={id} className={selectStyle(className, accent, disabled)} onClick={OnClick} style={style}>
-            {label}
-            {children}
-        </button>
-    );
-}
+  return (
+    <button
+      id={id}
+      className={selectStyle(className, accent, disabled)}
+      onClick={OnClick}
+      style={style}
+    >
+      {label}
+      {children}
+    </button>
+  );
+};
 
 export default Button;
 
 function selectStyle(className, accent, disabled) {
-    let styleClass = className + Styles.button
-    accent
-        ? styleClass += " " + Styles.accent
-        : styleClass += " " + Styles.default
-    disabled
-        ? styleClass += " " + Styles.disabled
-        : styleClass += " "
+  let styleClass = className + Styles.button;
+  accent
+    ? (styleClass += " " + Styles.accent)
+    : (styleClass += " " + Styles.default);
+  disabled ? (styleClass += " " + Styles.disabled) : (styleClass += " ");
 
-    return styleClass
+  return styleClass;
 }
 
 function warn_noAction() {
-    console.warn('Button has no activity, use Prop "onClick" to add Activity with a function n.n')
+  console.warn(
+    'Button has no activity, use Prop "onClick" to add Activity with a function n.n'
+  );
 }
 
-
 Button.propTypes = {
-    accent: PropTypes.bool,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    id: PropTypes.string,
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    style: PropTypes.object
+  accent: PropTypes.bool,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  id: PropTypes.string,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  style: PropTypes.object
 };
-

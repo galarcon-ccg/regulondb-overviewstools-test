@@ -4,7 +4,7 @@
 
 # Component name 
 
-[Split --v1.0 ]
+[Split --v0.5.0 ]
 
 ## Description  
 
@@ -56,7 +56,6 @@ __Warning__
 
 **/
 
-
 /**
 
 # Component (technical guide)
@@ -83,95 +82,105 @@ __Warning__
 
 **/
 
-
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Button from './Button'
-import DropDown from './DropDown'
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import Button from "./button";
+import DropDown from "./drop_down";
 
 const styleDropDown = {
-    width: "auto",
-    paddingLeft: "0",
-    paddingRight: "0"
-    
-}
+  width: "auto",
+  paddingLeft: "0",
+  paddingRight: "0"
+};
 const styleButton = {
-    float: "left",
-    marginRight: "2px"
-}
-
+  float: "left",
+  marginRight: "2px"
+};
 
 export default class Split extends Component {
+  state = {
+    label: this.props.label,
+    display: this.props.isDisplay,
+    value: {}
+  };
 
-    state = {
-        label: this.props.label,
-        display: this.props.isDisplay,
-        value: {}
+  selected = (value) => {
+    this.setState({ label: value.option, value: value });
+  };
+
+  onClick = () => {
+    if (!this.props.disabled) {
+      this.props.onClick(this.state.value);
     }
+  };
 
-    selected = (value) =>{
-        this.setState({label: value.option, value: value})
-    }
+  render() {
+    const {
+      accent,
+      arrayOptions,
+      buttonClassName,
+      dropdownClassName,
+      disabled,
+      styleButton,
+      styleDropDown
+    } = this.props;
 
-    onClick = () => {
-        if(!this.props.disabled){
-            this.props.onClick(this.state.value);
-        }
-    };
+    const { label, display } = this.state;
 
-
-    render() {
-        const {
-            accent,
-            arrayOptions,
-            buttonClassName,
-            dropdownClassName,
-            disabled,
-            styleButton,
-            styleDropDown
-        } = this.props
-
-        const {
-            label,
-            display
-        } = this.state
-
-            return (
-                <React.Fragment>
-                    <Button className={buttonClassName} accent={accent} label={label} onClick={this.onClick} style={styleButton} disabled={disabled}/>
-                    <DropDown className={dropdownClassName} accent={accent} label={""} disabled={disabled} arrayOptions={arrayOptions} style={styleDropDown} isDisplay={display} labelUpdate={false} onSelect={this.selected}/>
-                </React.Fragment>
-            )
-    }
+    return (
+      <React.Fragment>
+        <Button
+          className={buttonClassName}
+          accent={accent}
+          label={label}
+          onClick={this.onClick}
+          style={styleButton}
+          disabled={disabled}
+        />
+        <DropDown
+          className={dropdownClassName}
+          accent={accent}
+          label={""}
+          disabled={disabled}
+          arrayOptions={arrayOptions}
+          style={styleDropDown}
+          isDisplay={display}
+          labelUpdate={false}
+          onSelect={this.selected}
+        />
+      </React.Fragment>
+    );
+  }
 }
 
 function noAction() {
-    console.warn('button has no activity, use Prop "onClick" to add Activity with a function')
+  console.warn(
+    'button has no activity, use Prop "onClick" to add Activity with a function'
+  );
 }
 
 Split.propTypes = {
-    accent: PropTypes.bool,
-    arrayOptions: PropTypes.array,
-    buttonClassName: PropTypes.string,
-    dropdownClassName: PropTypes.string,
-    disabled: PropTypes.bool,
-    isDisplay: PropTypes.bool,
-    label: PropTypes.string,
-    onClick: PropTypes.func,
-    styleButton: PropTypes.object,
-    styleDropDown: PropTypes.object
+  accent: PropTypes.bool,
+  arrayOptions: PropTypes.array,
+  buttonClassName: PropTypes.string,
+  dropdownClassName: PropTypes.string,
+  disabled: PropTypes.bool,
+  isDisplay: PropTypes.bool,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  styleButton: PropTypes.object,
+  styleDropDown: PropTypes.object
 };
 
 Split.defaultProps = {
-    accent: false,
-    arrayOptions: [],
-    buttonClassName: "",
-    dropdownClassName: "",
-    disabled:  false,
-    isDisplay: false,
-    label: "select option =>",
-    onClick: noAction,
-    styleButton: styleButton,
-    styleDropDown: styleDropDown
+  accent: false,
+  arrayOptions: [],
+  buttonClassName: "",
+  dropdownClassName: "",
+  disabled: false,
+  isDisplay: false,
+  label: "select option =>",
+  onClick: noAction,
+  styleButton: styleButton,
+  styleDropDown: styleDropDown
 };

@@ -1,50 +1,29 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular,
-  },
-}));
+import { DropDown } from "./ui-components/ui_components";
 
 export default function Acordion({ id, nameGroup = "", graphics = [] }) {
-  const classes = useStyles();
-  console.log(graphics)
   return (
-    <div className={classes.root}>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id={id}
-        >
-          <Typography className={classes.heading}>{nameGroup}</Typography>
-        </AccordionSummary>
+    <div>
+      <DropDown
+        label={nameGroup}
+        id={id}
+        isDisplay={true}
+        styleButton={{ width: "100%" }}
+        styleBox={{ position: "inherit", background: "white" }}
+      >
         {graphics.map((graphic) => {
-          //return <h3>{element}</h3>;
-
           return (
-            <AccordionDetails>
-               <a
-                  href={`/overviews/${graphic.id}`}
-                  key={graphic.id}
-                  id={graphic.id}
-                >
-                  {graphic.title}
-                </a>
-            </AccordionDetails>
-          )
-       })}
-      </Accordion>
+            <a
+              href={`/overviews/${graphic.id}`}
+              key={graphic.id}
+              id={graphic.id}
+              style={{ width: "100%" }}
+            >
+              {graphic.title}
+            </a>
+          );
+        })}
+      </DropDown>
     </div>
   );
 }

@@ -67,7 +67,7 @@ Acordion contiene de forma agrupada los elementos que contienen sub elementos lo
 import React from "react";
 //import Querys from "../graphql/Querys";
 //import { useQuery } from "react-apollo";
-import { Cover } from "./ui-components/index";
+import { Cover } from "./ui-components/ui_components";
 import Acordion from "./overviews_acordion";
 import data from "./info.json";
 
@@ -77,7 +77,7 @@ function Main() {
   //if (loading) return <h2>loading...</h2>;
   if (data) {
     const { getAllObjectInfo } = data;
-    console.log(getAllObjectInfo);
+    //console.log(getAllObjectInfo);
     let groupByObject = [];
     let objectNames = [];
 
@@ -106,7 +106,8 @@ function Main() {
           <h1>Overviews</h1>
         </Cover>
         <article>
-          {console.log(groupByObject)}
+          <br />
+          <br />
           {objectNames.map((group, index) => {
             return (
               <Acordion

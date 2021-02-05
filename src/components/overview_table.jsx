@@ -1,15 +1,15 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 //import { getOverview } from "../graphql/QueryOverview";
 import { MDBDataTable } from "mdbreact";
 //import { useQuery } from "react-apollo";
-import { Modal } from "./ui-components/index";
+import { Modal } from "./ui-components/ui_components";
 import ModalTable from "./overview_modal_table";
 
 import data from "./graph1.json";
 
 const Datatable = () => {
-  const id = useParams().id;
+  //const id = useParams().id;
   //const { data, loading, error } = useQuery(getOverview(id));
 
   /*if (loading) return <h2>Loading...</h2>;
@@ -71,8 +71,8 @@ const Datatable = () => {
 
     return (
       <>
-        <h1>Tabla de datos</h1>
-        <MDBDataTable striped sortable small sorting={true} data={dataTable} />
+        <h2>Tabla de datos</h2>
+        <MDBDataTable striped sortable small sorting="true" data={dataTable} />
       </>
     );
   }

@@ -1,14 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+//import { useParams } from "react-router-dom";
 //import { getOverview } from "../graphql/QueryOverview";
 //import { useQuery } from "react-apollo";
 import { Bar } from "react-chartjs-2";
 import { MDBContainer } from "mdbreact";
 
-import { Cover } from "./ui-components/index";
+import { Cover } from "./ui-components/ui_components";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
+//import "mdbreact/dist/css/mdb.css";
 
 import Datatable from "./overview_table";
 
@@ -16,7 +16,7 @@ import data from "./graph1.json";
 
 function Grafica() {
   // Obtenemos el ID de la URL
-  const id = useParams().id;
+  //const id = useParams().id;
 
   //Ejecutamos el Query y le pasamos el ID del elemento que se seleccionó
   //const { data, error, loading } = useQuery(getOverview(id));
