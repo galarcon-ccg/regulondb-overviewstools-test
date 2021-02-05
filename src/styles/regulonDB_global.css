@@ -89,7 +89,7 @@ h1 {
   font-style: var(--fontStyle-title);
   font-weight: var(--fontWeight);
   line-height: var(--fontWeight);
-  color: var(--color-rest);
+  color: var(--color-grey1);
   margin-top: 0;
 }
 
@@ -99,7 +99,7 @@ h1 {
   font-style: var(--fontStyle-title);
   font-weight: var(--fontWeight);
   line-height: var(--fontWeight);
-  color: var(--color-rest);
+  color: var(--color-grey1);
 }
 
 h2 {
