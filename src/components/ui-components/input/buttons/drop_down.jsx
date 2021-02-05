@@ -1,7 +1,7 @@
 /**
 # Component (user guide)
 # Component name 
-[DropDown --v0.5.0]
+[DropDown --v0.5.2]
 ## Description  
 [This component allows us to display several options, being on top of the component a vertical palette with options is shown, allowing to click one of these.]
 ## Category   
