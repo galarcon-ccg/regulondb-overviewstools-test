@@ -1,7 +1,7 @@
 /**
 # Component (user guide)
 # Component name 
-[DropDown --v0.5.2]
+[DropDown --v0.5.1]
 ## Description  
 [This component allows us to display several options, being on top of the component a vertical palette with options is shown, allowing to click one of these.]
 ## Category   
@@ -27,7 +27,8 @@
 | disabled     | boolean  | false       | disable the dropdown                                         |
 | id           | string   |             | id to html document                                          |
 | label        | string   | DropDown    | Dropdown label                                               |
-| style        | object   | {}          |                                                              |
+| styleBox     | object   | {}          |                                                              |
+| styleButton  | object   | {}          |                                                              |
 | isDisplay    | boolean  | false       | enables the component to be displayed at startup             |
 | onSelect     | function | (value)=>{} | value is an object that contains the attributes index and option selected |
 

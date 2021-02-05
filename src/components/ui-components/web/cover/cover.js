@@ -30,8 +30,8 @@ export function Cover({ children, state, id = "AC0ver023", menssage }) {
         <div style={styleCover}>
           <SpinnerError key={id} />
           <div id={id} className={Style.cover + " " + Style.error}>
-            {children}
             {menssage}
+            {children}
           </div>
         </div>
       );
