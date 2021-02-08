@@ -7,14 +7,6 @@
       "graph": {
         "title": "Number of Transcription Factors per Gene"
       }
-    },
-    {
-      "_id": "RDBECOLIOV00001",
-      "queryName": "TFsByGene",
-      "objectType": "gene",
-      "graph": {
-        "title": "Number of promoters transcribing the gene"
-      }
     }
   ]
 }
